@@ -1,6 +1,6 @@
 #!/bin/python3
 
-import random
+import random,time
 
 win=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
 
@@ -154,7 +154,8 @@ if n==2:
 		filled=set()
 		pl=1
 		while 1:
-			print("Player %d, Enter move(x,y) (%s): " %(pl, match[pl]),end=' ')
+			print("Player %d, Enter move (%s): " %(pl, match[pl]))
+			print("Input format: row_num,col_num :",end=' ')
 			while 1:
 				i,j=map(int,input().split(','))
 				if ((i-1)*3+(j-1) not in filled):
@@ -203,7 +204,8 @@ elif n==1:
 		pl=1
 		while 1:
 			if pl==1:
-				print("Enter your move(x,y) (%s): " %(match[pl]),end=' ')
+				print("Enter your move (%s): " %(match[pl]))
+				print("Input format: row_num,col_num :",end=' ')
 				while 1:
 					i,j=map(int,input().split(','))
 					if ((i-1)*3+(j-1) not in filled):
@@ -215,7 +217,8 @@ elif n==1:
 						print("Position already filled")
 						print("Enter another move: ", end=' ')
 			elif pl==2:
-				print("Computer's move")
+				time.sleep(1)
+				print("Computer's move (O)")
 				b=['a']
 				for i in range(len(a)):
 					for j in range(3):
